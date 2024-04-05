@@ -1,0 +1,72 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[top=3cm, bottom=3cm, left = 2cm, right = 2cm]{geometry} 
+\geometry{a4paper} 
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{graphicx} 
+\usepackage{amsmath,amssymb}  
+\usepackage{bm}  
+\usepackage[pdftex,bookmarks,colorlinks,breaklinks]{hyperref}  
+%\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} % black links, for printed output
+\usepackage{memhfixc} 
+\usepackage{pdfsync}  
+\usepackage{fancyhdr}
+
+\title{Rapport de réunion 01 du 08/03/24}
+\author{Lucien Piat, Linda Khodja, Djemilatou Ouandaogo Salamane, Maroa Alani}
+
+\begin{document}
+\maketitle
+\noindent\rule{8cm}{0.4pt}
+
+\begin{quote}
+    Parties présentes : Le Client, Le Groupe\\
+    Objectif de la réunion : Préciser les besoins du client
+\end{quote}
+
+\section{Présentation du Sujet}
+
+Les champignons filamenteux du genre Fusarium sont des phytopathogènes qui contaminent plusieurs types de plantes. 
+Une de leurs cibles de prédilection est les céréales de blé. Ce champignon pousse partout dans les latitudes tempérées. 
+Ces phytopathogènes produisent des mycotoxine très stables et se retrouvent dans les farines. Ces derniers sont aussi dangereux pour l'homme produisant des vomissements et peuvent être cancérogènes et tératogènes.\\
+
+Les farines sont testées régulièrement pour les taux de toxines. Une trop forte dose entraîne des pertes économiques massives.\\
+
+Ainsi, l'INRAe essaye d'étudier les mécanismes moléculaires qui conduisent à la production des toxines.
+Il a été mis en évidence des communications entre les champignons du genre grâce à des miARN.\\
+
+On essaiera donc de caractériser ces miARN produits par les champignons en coculture.
+
+\section{Données en Entrée}
+\begin{itemize}
+    \item Fichiers FASTq issus de cultures. 
+    \item 8 pour les cultures pures, 48 pour les croisement.
+\end{itemize}
+
+\section{Objectifs Principaux}
+\begin{itemize}
+    \item Avoir une liste des ARN qui sont produits par chaque espèce. Il est important d'avoir les valeurs de quantité et de qualité. 
+    \item Faire un contrôle de qualité des reads.
+    \item Faire un nétyoyage des séquences.
+    \item Alligner les séquences sur les génomes de référence.
+    \item Produire une visualisation codifiée des résultats (Fongi.db.org).
+    \item Production d'un readme qui fera office de manuel.
+\end{itemize}
+
+\section{Contraintes}
+\begin{itemize}
+    \item Oppen source obligatoire.
+    \item Faire notre travail en accès pseudo restreint.
+\end{itemize}
+
+\section{Objectifs Secondaires}
+\begin{itemize}
+    \item Faire des statistiques
+\end{itemize}
+
+\noindent\rule{8cm}{0.4pt}
+\begin{quotation}
+    A l'issue de la réunion : Un RDV avec MBA aura lieu le 11/03
+\end{quotation}
+
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[top=3cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{bm}
+\usepackage[pdftex, bookmarks, colorlinks, breaklinks]{hyperref}
+\usepackage{memhfixc}
+\usepackage{pdfsync}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+
+\title{Rapport de réunion 05 du 05/04/24}
+\author{Lucien Piat, Linda Khodja, Djemilatou Ouandaogo Salamane, Maroa Alani}
+
+\begin{document}
+\maketitle
+\noindent\rule{8cm}{0.4pt}
+\begin{quote}
+    Parties présentes : Le groupe, Le client\\
+    Objectif de la réunion : Présentation de l'ébauche du cahier des charges
+\end{quote}
+
+\section{Mise à jour des Objectifs}
+Compte tenu de du temps restant, le client diminue la quantité de données à traiter à 42 échantillons. 
+Des lots de données seront formés pour faciliter l'analyse.\\ 
+
+\section{Précisions apportées par le client}
+\begin{itemize}[itemsep=1pt]
+    \item La base de données utilisée est \href{https://fungidb.org/fungidb/app}{Fungidb}.  
+    \item Bien prendre en compte que les \textit{Fusarium} SONT des phytopathogènes qui PRODUISENT des mycotoxines. 
+    \item Le rendu du rapport aura lieu le 13/05 idéalement
+\end{itemize}
+
+\section{Remarques lors de la relecture}
+\begin{itemize}[itemsep=1pt]
+    \item Il faudra faire attention lors de l'interprétation des FastQC
+    \item Le client souhaite utiliser  Cutadapt à la place de Trimmomatic
+    \item Une nouvelle version de BWA, peut BWA2 être pertinente pour l'alignement sur le génome
+    \item Pour l'identification des ARN il nous faudra prévoir un plan pour les reads qui ne sont pas annotés
+    \item Pour la quantification des ARN, il faudra établir une stratégie de comptage
+\end{itemize}
+
+\section{Futur proche}
+\begin{itemize}[itemsep=1pt]
+    \item Le client relie le rapport pour le 08/04
+    \item Le groupe devra envoyer une liste des métadonnées nécessaires 
+    \item Recuperer les génomes de référence sur \href{https://fungidb.org/fungidb/app}{Fungidb} et bien noter la version. 
+\end{itemize}
+
+\noindent\rule{8cm}{0.4pt}
+\begin{quotation}
+    À l'issue de la réunion: un RDV avec le client aura lieu le 15/04
+\end{quotation}
+
+\end{document}
