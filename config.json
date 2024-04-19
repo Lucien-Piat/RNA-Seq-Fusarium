@@ -1,0 +1,15 @@
+{
+    "bwa_mem2_path": "/path/to/bwa-mem2",
+    "reference_genome": "/path/to/reference_genome.fasta",
+    "reads": ["/path/to/read1.fastq.gz", "/path/to/read2.fastq.gz"],
+    "is_paired": false,
+    "thread_count": 1,
+    "fastqc_input_dir": "/path/to/your/folders",
+    "fastqc_output_dir": "/path/to/output/directory",
+    "cutadapt_input_dir": "/path/to/your/folders",
+    "cutadapt_output_dir": "/path/to/your/trimmed_fastq_files",
+    "illumina_adapter": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+    "solid_adapter": "CCACTACGCCTCCGCTTTCCTCTCTATGGGCAGTCGGTGAT",
+    "quality_cutoff": "20",
+    "minimum_length": "20"
+}
