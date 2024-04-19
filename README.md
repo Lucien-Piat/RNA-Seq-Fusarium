@@ -38,4 +38,8 @@ The pipeline is configured using a JSON file which specifies paths to input data
     "quality_cutoff": "20",
     "minimum_length": "20"
 }
-
+```
+### Usage:
+```bash
+python script.py /path/to/config.json
+```
