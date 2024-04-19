@@ -4,12 +4,10 @@
     "reads": ["/path/to/read1.fastq.gz", "/path/to/read2.fastq.gz"],
     "is_paired": false,
     "thread_count": 1,
-    "fastqc_input_dir": "/path/to/your/folders",
-    "fastqc_output_dir": "/path/to/output/directory",
-    "cutadapt_input_dir": "/path/to/your/folders",
-    "cutadapt_output_dir": "/path/to/your/trimmed_fastq_files",
-    "illumina_adapter": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
-    "solid_adapter": "CCACTACGCCTCCGCTTTCCTCTCTATGGGCAGTCGGTGAT",
+    "fastqc_input_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/RNA_seq/data",
+    "fastqc_output_dir": "mnt/c/Users/marwa/OneDrive/Desktop/RNA_seq/fastqc_output",
+    "cutadapt_input_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/RNA_seq/data",
+    "cutadapt_output_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/RNA_seq/trimmed_fastq_files",
     "quality_cutoff": "20",
     "minimum_length": "20"
 }
