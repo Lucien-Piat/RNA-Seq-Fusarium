@@ -23,12 +23,23 @@ reads = ["reads1.fastq", "reads2.fastq", "reads3.fastq", "reads4.fastq",
 # Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)
 
+def index_reference_genome(genome):
+    """Indexes the reference genome using BWA-MEM2."""
+    genome_path = os.path.join(genome_dir, genome)
+    print(f"Indexing {genome}")
+    index_command = f"{bwa_mem2} index {genome_path}"
+    subprocess.run(index_command, shell=True)
+
 # Loop through all genomes and reads
 for genome in genomes:
+    # Index each genome before alignment
+    index_reference_genome(genome)
+    
     for read in reads:
         print(f"Aligning {read} to {genome}")
         genome_path = os.path.join(genome_dir, genome)
         read_path = os.path.join(reads_dir, read)
         output_path = os.path.join(output_dir, f"{genome}_{read}.sam")
-        command = f"{bwa_mem2} mem {genome_path} {read_path} > {output_path}"
-        subprocess.run(command, shell=True)
+        align_command = f"{bwa_mem2} mem {genome_path} {read_path} > {output_path}"
+        subprocess.run(align_command, shell=True)
+
