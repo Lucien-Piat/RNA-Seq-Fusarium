@@ -1,5 +1,3 @@
-# RNA-Seq-Fusarium
-M1 Project
 # Genomics Data Preprocessing and Alignment Pipeline
 
 This pipeline performs quality checks, trimming of reads, indexing of reference genomes, and alignment of reads using BWA-MEM2. The pipeline is controlled by a JSON configuration file, making it flexible and adaptable to various datasets and analysis requirements.
@@ -40,12 +38,4 @@ The pipeline is configured using a JSON file which specifies paths to input data
     "quality_cutoff": "20",
     "minimum_length": "20"
 }
-Replace the paths and parameters with those appropriate for your analysis.
 
-
-### Usage :
-To run the pipeline, execute the Python script with the path to the configuration file as the only argument :
-```bash
-python script.py /path/to/config.json
-
-Output from each step will be saved in the specified output directories.
