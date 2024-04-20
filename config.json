@@ -1,0 +1,24 @@
+
+{
+    "bwa_mem2_path": "/path/to/bwa-mem2",
+    "reference_genome": "/path/to/reference_genome.fasta",
+    "reads": ["/path/to/read1.fastq.gz", "/path/to/read2.fastq.gz"],
+    "is_paired": false,
+    "thread_count": 1,
+    "csv_file": "/mnt/c/Users/marwa/OneDrive/Desktop/RNA_seq/metadata.csv",
+    "fastqc_input_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/RNA_seq/data",
+    "fastqc_output_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/RNA_seq/fastqc_output",
+    "trimmed_output_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/RNA_seq/trimmed",
+    "cutadapt": {
+      "adapters": {
+        "i7_seq": "-a i7_sequence",
+        "i5_seq": "-a i5_sequence",
+        "mirna_5": "-a GTTCAGAGTTCTACAGTCCGACGATC",
+        "mirna_3": "-a AACTGTAGGCACCATCAAT",
+        "udi": "-a CTACACGACGCTCTTCCGATCT",
+        "quality_cutoff": "20",
+        "minimum_length": "20"
+    }
+  }
+  
+}
