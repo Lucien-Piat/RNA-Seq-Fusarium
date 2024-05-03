@@ -24,22 +24,46 @@ The pipeline is configured using a JSON file which specifies paths to input data
 
 ```json
 {
-    "bwa_mem2_path": "/path/to/bwa-mem2",
-    "reference_genome": "/path/to/reference_genome.fasta",
-    "reads": ["/path/to/read1.fastq.gz", "/path/to/read2.fastq.gz"],
-    "is_paired": false,
-    "thread_count": 1,
-    "fastqc_input_dir": "/path/to/your/folders/for/fastqc",
-    "fastqc_output_dir": "/path/to/output/directory/for/fastqc",
-    "cutadapt_input_dir": "/path/to/your/folders/for/cutadapt",
-    "cutadapt_output_dir": "/path/to/your/trimmed_fastq_files",
-    "illumina_adapter": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
-    "solid_adapter": "CCACTACGCCTCCGCTTTCCTCTCTATGGGCAGTCGGTGAT",
-    "quality_cutoff": "20",
-    "minimum_length": "20"
-}
+  "scripts": [
+    {
+      "name": "quality.sh",
+      "description": "Runs FastQC on trimmed RNA-seq data.",
+      "path_order": ["input_dir", "output_dir"],
+      "paths": {
+        "input_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/data",
+        "output_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/fastqc_output"
+      }
+    },
+    {
+      "name": "trim.sh",
+      "description": "Trims adapters from RNA-seq reads using Cutadapt.",
+      "path_order": ["INPUT_DIR", "OUTPUT_DIR"],
+      "paths": {
+        "INPUT_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/data",
+        "OUTPUT_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/trimmed_1"
+      }
+    },
+    {
+      "name": "align.sh",
+      "description": "Aligns RNA-seq reads using BWA-MEM2 against reference genomes.",
+      "path_order": ["TRIMMED_OUTPUT_DIR", "GENOME_DIR", "OUTPUT_DIR"],
+      "paths": {
+        "TRIMMED_OUTPUT_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/trimmed_1",
+        "GENOME_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/genomes",
+        "OUTPUT_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/alignment_output"
+      }
+    },
+    {
+      "name": "samtools.sh",
+      "description": "Converts, sorts, indexes SAM files, and generates idxstats.",
+      "path_order": ["input_dir", "output_dir"],
+      "paths": {
+        "input_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/alignment_output",
+        "output_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/bam_files"
+      }
+    }
 ```
 ### Usage:
 ```bash
-python script.py /path/to/config.json
+python manage.py 
 ```
