@@ -1,0 +1,16 @@
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+% à adapter
+
+En conclusion, ce projet a permis de mettre en place un pipeline d'analyse de données RNA-Seq pour étudier l'expression des gènes dans le contexte de cocultures de céréales et de champignons du genre Fusarium. À travers les différentes étapes du pipeline, depuis le prétraitement des données jusqu'à l'analyse en aval, nous avons pu obtenir des résultats précis et significatifs.\newline
+    
+La première étape du pipeline, l'évaluation de la qualité des données, est réalisée avec précision grâce à des outils tels que FastQC et MultiQC, fournissant ainsi des statistiques détaillées sur la qualité des lectures. Ensuite, le nettoyage des lectures est effectué avec Cutadapt, spécialisé dans l'élimination des adaptateurs, afin de préparer les lectures pour l'alignement sur le génome.\newline
+    
+L'alignement des lectures sur le génome, réalisé avec BWA-MEM2, constitue une étape cruciale pour obtenir des résultats précis. L'utilisation de ShortStack permet ensuite l'identification exhaustive des petits ARN produits, y compris ceux déjà connus et les nouveaux, facilitant ainsi une analyse approfondie des données. De plus, l'indexation des ARN avec la suite Samtools assure une gestion efficace des données génomiques.\newline
+    
+Le choix de ces algorithmes, basés sur la transformée de Burrows-Wheeler, s'avère être la méthode la plus efficace pour aligner des chaînes de caractères entre elles, garantissant ainsi la fiabilité des résultats obtenus.\newline
+    
+Enfin, le pipeline est livré sous forme de scripts Python puis d'un manuel d'utilisation, offrant ainsi une flexibilité et une facilité d'utilisation pour l'utilisateur final, tout en assurant une manipulation efficace des données.\newline
+    
+En somme, ce pipeline sur mesure répond aux exigences spécifiques de l'analyse de données de séquençage de petits ARN dans le contexte des cocultures de céréales et de champignons du genre Fusarium, offrant ainsi une solution complète et fiable pour les besoins du client.

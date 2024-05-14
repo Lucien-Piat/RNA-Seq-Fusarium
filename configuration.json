@@ -1,0 +1,62 @@
+{
+  "scripts": [
+    {
+      "name": "quality_control.sh",
+      "description": "Runs FastQC on trimmed RNA-seq data.",
+      "path_order": ["input_dir", "output_dir"],
+      "paths": {
+        "input_dir": "./dataset",
+        "output_dir": "./fastqc_output"
+      }
+    },
+    {
+      "name": "trimming.sh",
+      "description": "Trims adapters from RNA-seq reads using Cutadapt.",
+      "path_order": ["INPUT_DIR", "OUTPUT_DIR"],
+      "paths": {
+        "INPUT_DIR": "./dataset",
+        "OUTPUT_DIR": "./trimming_output"
+      }
+    },
+    {
+      "name": "alignement.sh",
+      "description": "Aligns RNA-seq reads using BWA-MEM2 against reference genomes.",
+      "path_order": ["TRIMMED_OUTPUT_DIR", "GENOME_DIR", "OUTPUT_DIR"],
+      "paths": {
+        "TRIMMED_OUTPUT_DIR": "./trimming_output",
+        "GENOME_DIR": "./genomes",
+        "OUTPUT_DIR": "./alignment_output"
+      }
+    },
+    {
+      "name": "samtools.sh",
+      "description": "Converts, sorts, indexes SAM files, and generates idxstats.",
+      "path_order": ["input_dir", "output_dir"],
+      "paths": {
+        "input_dir": "./alignment_output",
+        "output_dir": "./BAM_files"
+      }
+    },
+    {
+      "name": "miRNAs_identification.sh",
+      "description": "Identifies miRNA sequences using ShortStack.",
+      "environment": {
+        "name": "ShortStack4",
+        "conda_path": "/home/malani/miniconda3/etc/profile.d/conda.sh"
+      },
+      "path_order": ["genome_path", "read_directory"],
+      "paths": {
+        "genome_path": "./genomes",
+        "read_directory": "./trimming_output"
+      },
+      "genomes": {
+        "Fgraminearum": "Fgraminearum_Genome.fasta",
+        "Fverticillioides": "Fverticillioides_Genome.fasta"
+      },
+      "output_naming": {
+        "base_directory": "./",
+        "pattern": "miRNA_identification_{genome}_{basename}_{timestamp}"
+      }
+    }    
+  ]
+}

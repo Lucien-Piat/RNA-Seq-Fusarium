@@ -26,7 +26,7 @@ The pipeline is configured using a JSON file which specifies paths to input data
 {
   "scripts": [
     {
-      "name": "quality.sh",
+      "name": "quality_control.sh",
       "description": "Runs FastQC on trimmed RNA-seq data.",
       "path_order": ["input_dir", "output_dir"],
       "paths": {
@@ -35,7 +35,7 @@ The pipeline is configured using a JSON file which specifies paths to input data
       }
     },
     {
-      "name": "trim.sh",
+      "name": "trimming.sh",
       "description": "Trims adapters from RNA-seq reads using Cutadapt.",
       "path_order": ["INPUT_DIR", "OUTPUT_DIR"],
       "paths": {
@@ -44,7 +44,7 @@ The pipeline is configured using a JSON file which specifies paths to input data
       }
     },
     {
-      "name": "align.sh",
+      "name": "alignement.sh",
       "description": "Aligns RNA-seq reads using BWA-MEM2 against reference genomes.",
       "path_order": ["TRIMMED_OUTPUT_DIR", "GENOME_DIR", "OUTPUT_DIR"],
       "paths": {

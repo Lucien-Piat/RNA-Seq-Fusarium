@@ -1,8 +1,0 @@
-https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
-http://www.usadellab.org/cms/?page=trimmomatic
-https://bioweb.pasteur.fr/packages/pack@STAR@2.7.6a
-https://fungidb.org/fungidb/app/search/transcript/GeneByLocusTag
-https://www.theses.fr/2022BORD0436.pdf
-https://mycsa.bordeaux-aquitaine.hub.inrae.fr/mycsa-en-quelques-mots
-https://mycsa.bordeaux-aquitaine.hub.inrae.fr/projets-de-recherche/archive-projets/teamtox
-https://www.researchgate.net/figure/Schematic-of-experimental-workflow-of-RNA-seq-analysis-of-Bacillus-velezensis-and_fig2_367462925

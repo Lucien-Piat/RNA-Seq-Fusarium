@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Relative path to the JSON configuration file
-CONFIG_FILE="./rna_seq_config.json"
+CONFIG_FILE="./configuration.json"
 
 # Use jq to extract paths for input and output directories
 input_dir=$(jq -r '.scripts[] | select(.name=="samtools.sh") | .paths.input_dir' "$CONFIG_FILE")
