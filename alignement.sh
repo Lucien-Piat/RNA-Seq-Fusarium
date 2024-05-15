@@ -9,10 +9,16 @@ GENOME_DIR=$(jq -r '.scripts[] | select(.name=="alignement.sh") | .paths.GENOME_
 OUTPUT_DIR=$(jq -r '.scripts[] | select(.name=="alignement.sh") | .paths.OUTPUT_DIR' "$CONFIG_FILE")
 
 # Path to the BWA-MEM2 executable
-BWA_MEM2="$HOME/bwa-mem2/bwa-mem2/bwa-mem2.avx2"
+BWA_MEM2="./tools/bwa-mem2-2.2.1_x64-linux/bwa-mem2.avx2"
 
-# Lists of reference genomes
-GENOMES=("Fgraminearum_Genome.fasta" "Fverticillioides_Genome.fasta")
+# Prompt the user to enter the list of genomes
+read -p "Enter the list of the reference genomes exact filenames (separated by spaces): " -a GENOMES
+
+# Display the list of genomes entered by the user
+echo "List of reference genomes entered :"
+for genome in "${GENOMES[@]}"; do
+  echo "$genome"
+done
 
 # Check if the output directory exists and create it if not
 if [ ! -d "$OUTPUT_DIR" ]; then
@@ -45,7 +51,7 @@ for genome in "${GENOMES[@]}"; do
 done
 
 # Define the read files from TRIMMED_OUTPUT_DIR
-READS=($(ls "$TRIMMED_OUTPUT_DIR"/*.fastq.gz))
+READS=($(ls "$TRIMMED_OUTPUT_DIR"/*_trimmed.fastq.gz))
 
 # Loop through all genomes and reads for alignment
 for genome in "${GENOMES[@]}"; do
@@ -56,5 +62,4 @@ for genome in "${GENOMES[@]}"; do
     eval "$command"
   done
 done
-
 echo "Alignment process complete."

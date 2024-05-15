@@ -48,4 +48,3 @@ for sam_file in "$input_dir"/*.sam; do
 done
 
 echo "All SAM files have been processed."
-

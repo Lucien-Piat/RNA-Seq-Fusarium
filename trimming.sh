@@ -40,18 +40,22 @@ tail -n +2 "$CSV_FILE" | while IFS=, read -r Confrontation Name i7_RUDI index_i7
   INPUT_FILE="${INPUT_DIR}/${Name}.fastq.gz"
   TEMP_OUTPUT_FILE="${OUTPUT_DIR}/${Name}.fastq"
   FINAL_OUTPUT_FILE="${OUTPUT_DIR}/${Name}_trimmed.fastq.gz"
+  SUMMARY_FILE="${OUTPUT_DIR}/trimming_summary.txt"
 
   # Check if the file exists
   if [[ -f "$INPUT_FILE" ]]; then
-    echo "Processing file: $INPUT_FILE"
+    echo "Processing file: $INPUT_FILE" | tee -a "$SUMMARY_FILE"
 
     # Decompress, run Cutadapt with adapter sequences, then recompress
     gunzip -c "$INPUT_FILE" > "$TEMP_OUTPUT_FILE"
-    cutadapt -a "$index_i7" -a "$index_i5" -a "$ILLUMINA_ADAPTER" -a "$SOLID_ADAPTER" -g "$miRNA_5" -a "$miRNA_3" -m 15 -M 30 -o "$FINAL_OUTPUT_FILE" "$TEMP_OUTPUT_FILE"
+    cutadapt -a "$index_i7" -a "$index_i5" -a "$ILLUMINA_ADAPTER" -a "$SOLID_ADAPTER" -g "$miRNA_5" -a "$miRNA_3" -m 15 -M 30 -o "$FINAL_OUTPUT_FILE" "$TEMP_OUTPUT_FILE" | tee -a "$SUMMARY_FILE"
     gzip "$TEMP_OUTPUT_FILE"  # Recompress the temporary output
 
-    echo "Processing successful for $INPUT_FILE"
+    echo "Processing successful for $INPUT_FILE" | tee -a "$SUMMARY_FILE"
   else
-    echo "File $INPUT_FILE does not exist."
+    echo "File $INPUT_FILE does not exist." | tee -a "$SUMMARY_FILE"
   fi
+  # Add a separator between samples
+  echo -e "\n---\n" | tee -a "$SUMMARY_FILE"
 done
+echo "Trimming process complete."
