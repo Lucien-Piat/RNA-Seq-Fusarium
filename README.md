@@ -74,4 +74,10 @@ python manage.py
 ```bach
 ./cuffdiff.sh
 ```
-
+```bash
+Rscript result_postprocessing.r /path/to/your/file.diff
+```
+Example : 
+```bash
+Rscript result_postprocessing.r ./output_genome1/C9/gene_exp.diff
+```
