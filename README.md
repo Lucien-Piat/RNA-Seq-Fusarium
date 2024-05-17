@@ -1,6 +1,6 @@
 # Genomics Data Preprocessing and Alignment Pipeline
 
-This pipeline performs quality checks, trimming of reads, indexing of reference genomes, and alignment of reads using BWA-MEM2. The pipeline is controlled by a JSON configuration file, making it flexible and adaptable to various datasets and analysis requirements.
+This repository contains a set of scripts and configurations to run an RNA-Seq analysis pipeline. The pipeline processes RNA-Seq data through various stages, including quality control, trimming, alignment, feature counting, and differential expression analysis. Each step is configured using a JSON configuration file.
 
 ## Getting Started
 
@@ -9,14 +9,18 @@ These instructions will guide you through the setup and execution of the genomic
 ### Prerequisites
 
 - Python 3
-- BWA-MEM2
-- FastQC
-- Cutadapt
+- jq: A lightweight and flexible command-line JSON processor.
+- Cutadapt: A tool for removing adapter sequences from high-throughput sequencing reads.
+- BWA-MEM2: An updated version of the BWA aligner.
+- SAMtools: Tools for manipulating alignments in the SAM format.
+- ShortStack: A tool for the analysis of small RNA-seq data.
+- featureCounts: A program for counting reads to genomic features.
+- Cuffdiff: Part of the Cufflinks suite for analyzing RNA-Seq data.
 - A valid JSON configuration file
 
 ### Installation
 
-Ensure that all the required tools (BWA-MEM2, FastQC, Cutadapt) are installed and accessible in your system's PATH. This script assumes that these tools are already installed and configured correctly.
+Ensure that all the required tools are installed and accessible in your system's PATH. This script assumes that these tools are already installed and configured correctly.
 
 ### Configuration
 
@@ -67,3 +71,7 @@ The pipeline is configured using a JSON file which specifies paths to input data
 ```bash
 python manage.py 
 ```
+```bach
+./cuffdiff.sh
+```
+
