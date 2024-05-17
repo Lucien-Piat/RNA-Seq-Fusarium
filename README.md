@@ -18,9 +18,12 @@ These instructions will guide you through the setup and execution of the genomic
 - Cuffdiff: Part of the Cufflinks suite for analyzing RNA-Seq data.
 - A valid JSON configuration file
 
-### Installation
+### Installation and Usage
 
-Ensure that all the required tools are installed and accessible in your system's PATH. This script assumes that these tools are already installed and configured correctly.
+- Clone the repository to your local machine.
+- Install the required software and dependencies.
+- Update the configuration.json file with appropriate paths and settings.
+- Execute pipeline_manager.py to run the pipeline interactively.
 
 ### Configuration
 
@@ -34,8 +37,8 @@ The pipeline is configured using a JSON file which specifies paths to input data
       "description": "Runs FastQC on trimmed RNA-seq data.",
       "path_order": ["input_dir", "output_dir"],
       "paths": {
-        "input_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/data",
-        "output_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/fastqc_output"
+        "input_dir": "./dataset",
+        "output_dir": "./fastqc_output"
       }
     },
     {
@@ -43,8 +46,8 @@ The pipeline is configured using a JSON file which specifies paths to input data
       "description": "Trims adapters from RNA-seq reads using Cutadapt.",
       "path_order": ["INPUT_DIR", "OUTPUT_DIR"],
       "paths": {
-        "INPUT_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/data",
-        "OUTPUT_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/trimmed_1"
+        "INPUT_DIR": "./dataset",
+        "OUTPUT_DIR": "./trimming_output"
       }
     },
     {
@@ -52,9 +55,9 @@ The pipeline is configured using a JSON file which specifies paths to input data
       "description": "Aligns RNA-seq reads using BWA-MEM2 against reference genomes.",
       "path_order": ["TRIMMED_OUTPUT_DIR", "GENOME_DIR", "OUTPUT_DIR"],
       "paths": {
-        "TRIMMED_OUTPUT_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/trimmed_1",
-        "GENOME_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/genomes",
-        "OUTPUT_DIR": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/alignment_output"
+        "TRIMMED_OUTPUT_DIR": "./trimming_output",
+        "GENOME_DIR": "./genomes",
+        "OUTPUT_DIR": "./alignment_output"
       }
     },
     {
@@ -62,16 +65,16 @@ The pipeline is configured using a JSON file which specifies paths to input data
       "description": "Converts, sorts, indexes SAM files, and generates idxstats.",
       "path_order": ["input_dir", "output_dir"],
       "paths": {
-        "input_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/alignment_output",
-        "output_dir": "/mnt/c/Users/marwa/OneDrive/Desktop/new/RNA_seq/bam_files"
+        "input_dir": "./alignment_output",
+        "output_dir": "./samtools_output"
       }
     }
 ```
 ### Usage:
 ```bash
-python manage.py 
+python3 pipeline_manager.py
 ```
-```bach
+```bash
 ./cuffdiff.sh
 ```
 ```bash
