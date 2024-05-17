@@ -8,15 +8,18 @@ These instructions will guide you through the setup and execution of the genomic
 
 ### Prerequisites
 
-- Python 3
-- jq: A lightweight and flexible command-line JSON processor.
+- FastQC: A tool for quality control.
 - Cutadapt: A tool for removing adapter sequences from high-throughput sequencing reads.
 - BWA-MEM2: An updated version of the BWA aligner.
 - SAMtools: Tools for manipulating alignments in the SAM format.
 - ShortStack: A tool for the analysis of small RNA-seq data.
 - featureCounts: A program for counting reads to genomic features.
 - Cuffdiff: Part of the Cufflinks suite for analyzing RNA-Seq data.
+- jq: A lightweight and flexible command-line JSON processor.
 - A valid JSON configuration file
+- Python 3
+- Conda (for managing environments)
+- Operating System: Linux (scripts may require modifications for other OS)
 
 ### Installation and Usage
 
