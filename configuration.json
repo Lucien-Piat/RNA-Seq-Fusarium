@@ -42,7 +42,7 @@
       "description": "Identifies miRNA sequences using ShortStack.",
       "environment": {
         "name": "ShortStack4",
-        "conda_path": "/home/malani/miniconda3/etc/profile.d/conda.sh"
+        "conda_path": "/path/to/miniconda3/etc/profile.d/conda.sh"
       },
       "path_order": ["genome_path", "read_directory"],
       "paths": {
@@ -56,6 +56,24 @@
       "output_naming": {
         "base_directory": "./",
         "pattern": "miRNA_identification_{genome}_{basename}_{timestamp}"
+      }
+    },
+    {
+      "name": "cuffdiff.sh",
+      "description": "Runs Cuffdiff to analyze RNA-seq data and identify differential expression.",
+      "environment": {
+        "name": "cufflinks_env",
+        "conda_path": "/path/to/miniconda3/etc/profile.d/conda.sh"
+      },
+      "path_order": ["base_directory", "genome_fa1", "genome_fa2", "gff1", "gff2", "bam_dir", "conditions"],
+      "paths": {
+        "base_directory": "/path/to/directory...",
+        "genome_fa1": "/path/to/genomes/Fgraminearum_Genome.fasta",
+        "genome_fa2": "/path/to/genomes/Fverticillioides_Genome.fasta",
+        "gff1": "/path/to/Fgraminearum.gff",
+        "gff2": "/path/to/Fverticillioides.gff",
+        "bam_dir": "/path/to/bam_files",
+        "conditions": ["C9", "C25"]
       }
     }    
   ]
