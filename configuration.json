@@ -68,12 +68,12 @@
       "path_order": ["base_directory", "genome_fa1", "genome_fa2", "gff1", "gff2", "bam_dir", "conditions"],
       "paths": {
         "base_directory": "/path/to/directory...",
-        "genome_fa1": "/path/to/genomes/Fgraminearum_Genome.fasta",
-        "genome_fa2": "/path/to/genomes/Fverticillioides_Genome.fasta",
-        "gff1": "/path/to/Fgraminearum.gff",
-        "gff2": "/path/to/Fverticillioides.gff",
+        "genome_fa1": "/path/to/Genome_1.fasta",
+        "genome_fa2": "/path/to/Genome_2.fasta",
+        "gff1": "/path/to/genome_1.gff",
+        "gff2": "/path/to/genome_2.gff",
         "bam_dir": "/path/to/bam_files",
-        "conditions": ["C9", "C25"]
+        "conditions": ["condition1", "condition2"]
       }
     }    
   ]
