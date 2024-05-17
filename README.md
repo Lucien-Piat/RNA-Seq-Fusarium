@@ -1,4 +1,4 @@
-# Genomics Data Preprocessing and Alignment Pipeline
+# RNA-Seq Analysis Pipeline
 
 This repository contains a set of scripts and configurations to run an RNA-Seq analysis pipeline. The pipeline processes RNA-Seq data through various stages, including quality control, trimming, alignment, feature counting, and differential expression analysis. Each step is configured using a JSON configuration file.
 
