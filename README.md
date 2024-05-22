@@ -21,7 +21,7 @@ These instructions will guide you through the setup and execution of the genomic
 - Conda (for managing environments)
 - Operating System: Linux (scripts may require modifications for other OS)
 
-### Installation and Usage
+### Installation
 
 - Clone the repository to your local machine.
 - Install the required software and dependencies.
